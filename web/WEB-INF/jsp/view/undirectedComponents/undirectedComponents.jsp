@@ -120,6 +120,11 @@ function canvasApp() {
   	var yPos = [100, 200, 300, 400, 500];
 
   	var names = ["a", "b", "c", "d", "e", "f" ,"g"];
+  	
+  	var compColors = ["blue", "blueViolet", "brown", "burlyWood", 
+                      "cadetBlue", "chartreuse", "forestGreen", "coral",
+                      "darkCyan", "darkGoldenRod", "darkGray", "darkGreen", "magenta", "blue"];
+   
 
   	var time;
   	var N = 35;
@@ -143,8 +148,13 @@ function canvasApp() {
 
   	function drawVertex(vertex) {
 	
-    	context.beginPath(); 
-    	context.strokeStyle = vertex.mColor; 
+  		if (vertex.mComp != null && vertex.mF != 0) { 
+      		context.strokeStyle = compColors[vertex.mComp % compColors.length];  
+    	} else {
+      		context.strokeStyle = vertex.mColor; 
+    	}
+  		
+    	context.beginPath();  
     	context.lineWidth = 2;
     	context.arc(vertex.xPos, vertex.yPos, vertex.mRadius, (Math.PI/180)*0, (Math.PI/180)*360, true); // draw full circle
     	context.stroke();
@@ -590,7 +600,8 @@ I closely follow the approach of Cormen in his classical textbook.</p>
   <p>An undirected graph is randomly created. Then the DFS algorithm is applied step-by-step.<br/>
   For each vertex the DFS results are displayed with the format:<br/>
   d/f c<br/>
-  where d is the discovery time, f is the finishing time and c is the number of the vertex connected component.
+  where d is the discovery time, f is the finishing time and c is the number of the vertex connected component.<br/>
+  Each vertex is colored according to the component it belong to.
 </p>
   </header>
 

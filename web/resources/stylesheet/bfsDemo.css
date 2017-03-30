@@ -19,14 +19,14 @@
   float: left;
   width: 202px;
   height: auto;
-  font: 15px verdana, sans-serif;
-  /*border: 1px solid #990000;*/
+  font: 14px verdana, sans-serif;
+  border: 1px solid #999999;
 }
 
 #randomize {
   width: 200px;
   height: auto;
-  font: 12px verdana, sans-serif;
+  font: 14px verdana, sans-serif;
   border: 1px solid #999999;
 }
 
